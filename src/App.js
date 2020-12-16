@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = { word: "", wordLength: 0 };
+
+  getWordLength = () => {
+    let wordLength = this.state.word.length;
+    this.setState({ wordLength: wordLength });
+  };
+
+  render() {
+    return (
+      <div className="container-outer">
+        <h1>I Am The App</h1>
+        <div className="container-inner">
+          <input type="text" onChange={this.getWordLength}>
+            {this.state.word}
+          </input>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

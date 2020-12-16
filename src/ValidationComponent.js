@@ -2,14 +2,14 @@ import React from "react";
 import CharComponent from "./CharComponent";
 
 const validationComponent = (props) => {
-  let message = "Text too short";
+  let message;
   let charComponents = "";
 
-  if (props.wordLength >= 5) {
-    message = "Text long enough";
-  }
+  props.wordLength >= 5
+    ? (message = "Text long enough")
+    : (message = "Text too short");
 
-  if (message === "Text long enough") {
+  if (props.wordLength >= 5) {
     charComponents = props.word
       .split("")
       .map((entry, index) => (

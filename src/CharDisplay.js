@@ -1,6 +1,6 @@
 import React from "react";
 
-const charComponent = (props) => {
+const charDisplay = (props) => {
   return (
     <div className="container-inner">
       <h3 onClick={props.clicked}>{props.letter}</h3>
@@ -8,4 +8,4 @@ const charComponent = (props) => {
   );
 };
 
-export default charComponent;
+export default charDisplay;

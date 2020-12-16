@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ValidationComponent from "./ValidationComponent";
+import Validation from "./Validation";
 
 class App extends Component {
   state = { word: "", wordLength: 0 };
@@ -33,7 +33,7 @@ class App extends Component {
 
           <h3>Word Length: {this.state.wordLength}</h3>
         </div>
-        <ValidationComponent
+        <Validation
           word={this.state.word}
           wordLength={this.state.wordLength}
           handleDeleteLetter={this.handleDeleteLetter}

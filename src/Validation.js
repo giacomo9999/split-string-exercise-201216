@@ -1,7 +1,7 @@
 import React from "react";
-import CharComponent from "./CharComponent";
+import CharDisplay from "./CharDisplay";
 
-const validationComponent = (props) => {
+const validation = (props) => {
   let message;
   let charComponents = "";
 
@@ -13,7 +13,7 @@ const validationComponent = (props) => {
     charComponents = props.word
       .split("")
       .map((entry, index) => (
-        <CharComponent
+        <CharDisplay
           letter={entry}
           index={index}
           clicked={() => props.handleDeleteLetter(index)}
@@ -29,4 +29,4 @@ const validationComponent = (props) => {
   );
 };
 
-export default validationComponent;
+export default validation;

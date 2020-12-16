@@ -1,11 +1,23 @@
 import React, { Component } from "react";
+import ValidationComponent from "./ValidationComponent";
 
 class App extends Component {
   state = { word: "", wordLength: 0 };
 
-  getWordLength = () => {
-    let wordLength = this.state.word.length;
-    this.setState({ wordLength: wordLength });
+  handleChange = (e) => {
+    let inputWordLength = e.target.value.length;
+    this.setState({ word: e.target.value, wordLength: inputWordLength });
+  };
+
+  handleDeleteLetter = (letterIndex) => {
+    let deletedLetterWord = this.state.word
+      .split("")
+      .filter((entry, index) => index !== letterIndex)
+      .join("");
+    this.setState({
+      word: deletedLetterWord,
+      wordLength: deletedLetterWord.length,
+    });
   };
 
   render() {
@@ -13,10 +25,19 @@ class App extends Component {
       <div className="container-outer">
         <h1>I Am The App</h1>
         <div className="container-inner">
-          <input type="text" onChange={this.getWordLength}>
-            {this.state.word}
-          </input>
+          <input
+            type="text"
+            value={this.state.word}
+            onChange={this.handleChange}
+          />
+
+          <h3>Word Length: {this.state.wordLength}</h3>
         </div>
+        <ValidationComponent
+          word={this.state.word}
+          wordLength={this.state.wordLength}
+          handleDeleteLetter={this.handleDeleteLetter}
+        />
       </div>
     );
   }
